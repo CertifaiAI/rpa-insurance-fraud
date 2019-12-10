@@ -39,7 +39,7 @@ If you wish to know more about Konduit model serving, please refer to the below 
 Similar to how you perform inference(prediction), you can write a python script to serve your model.  
 
 ### Example in Python with Tensorflow Model
-![Python Script Example](img/pythonscriptexample.png "Python Script Example")  
+![Python Script Example](workflow/img/pythonscriptexample.png "Python Script Example")  
 
 You will notice that in the picture above consist of red boxes and green box. These 2 boxes contain variables which is needed by Konduit-Serving for the insurance fraud detection demo.  
 
@@ -54,18 +54,18 @@ In this demo: The configuration file is named inference-fraud-config*.json_
 &nbsp;  
 ### Example showing configuration file for Konduit-Serving  
 &nbsp;  
-![Konduit-Serving](img/konduitserving.png "Konduit-Serving")  
+![Konduit-Serving](workflow/img/konduitserving.png "Konduit-Serving")  
 &nbsp;  
 Since the variables above already specified in the Konduit-Serving configuration file, the python script will be executed during a POST request and the specified values will be returned in json format to the client side.  
 &nbsp;    
 ### **Sample POST request input (json) :**   
 &nbsp;  
-![Client Input Sample (json format)](img/jsonPOST.png "Client Input Sample (json format)")  
+![Client Input Sample (json format)](workflow/img/jsonPOST.png "Client Input Sample (json format)")  
 &nbsp;  
 &nbsp;  
 ### **Sample POST request output (json) :**   
 &nbsp;  
-![Client Output Sample (json format)](img/jsonPOSToutput.png "Client Output Sample (json format)") 
+![Client Output Sample (json format)](workflow/img/jsonPOSToutput.png "Client Output Sample (json format)") 
 &nbsp;  
 ## RPA(UiPath) Workflow :  
 &nbsp;  
@@ -73,7 +73,7 @@ RPA workflow for Insurance fraud detection demo is created based on a readily av
 &nbsp;  
 ### Preserve Workflow (just use it) :  
 &nbsp;  
-![Preserve Workflow (mandatory)](img/preserveworkflow.png "Preserve Workflow (mandatory)")  
+![Preserve Workflow (mandatory)](workflow/img/preserveworkflow.png "Preserve Workflow (mandatory)")  
 &nbsp;  
 "ConfigureKonduitServing.xaml" is a mandatory workflow that needed to be initiated before any other workflow started. There are nothing much needed to be change in 
 "ConfigureKonduitServing.xaml" workflow. if you are using your own python script to serve, please refer above "Model Serving" steps to understand how to configure your 
@@ -81,7 +81,7 @@ own script in serving.
 &nbsp;  
 ### Main.xaml Workflow :  
 &nbsp;  
-![Main Workflow](img/mainworkflow.png "Main Worflow")  
+![Main Workflow](workflow/img/mainworkflow.png "Main Worflow")  
 &nbsp;  
 This is the start up point of whole workflow. You can see that the very first workflow to start with always to initiate konduit model serving system.
 If you intended to create your own workflow, please do keep in mind that just leverage the "ConfigureKonduitServing.xaml" and always start this workflow before any subsequence
@@ -89,16 +89,16 @@ workflow.
 &nbsp;  
 ### ReadClaimForms.xaml Workflow :  
 &nbsp;  
-![Read Claims forms Workflow](img/readclaimsform.png "Read Claims forms Workflow")  
+![Read Claims forms Workflow](workflow/img/readclaimsform.png "Read Claims forms Workflow")  
 &nbsp;  
 This Workflow is customize base on current available claim forms format. Please do note that this workflow is not generic workflow. You should create your own forms reading workflow to extract out features from your own forms format (web forms, PDF, excel and etc.).  
 In this workflow, basically the main process incharge will be extract data table (GetEachValue.xaml) from excel form (refer to Sample Forms image)---> map each extracted feature with pre-instant dictionary list(Transformation.xaml)--->perform normalization (Transformation.xaml) ---> append all the features in an array list---> return the array list ---> sent to Konduit-Serving for inference (GetInferenceResults.xaml) ---> catagorize result(TransformOutputData.xaml).  
 &nbsp;  
-![Sample Forms](img/sampleform.png "Sample Forms")  
+![Sample Forms](workflow/img/sampleform.png "Sample Forms")  
 &nbsp;  
 ### GetInferenceResults.xaml Workflow :  
 &nbsp;  
-![Client Prediction Workflow](img/serverprediction.png "Client Prediction Workflow")  
+![Client Prediction Workflow](workflow/img/serverprediction.png "Client Prediction Workflow")  
 &nbsp;  
 This workflow can be leverage as client https POST request workflow. The main function of this workflow is to sent a POST request to Konduit-Serving system and get a prediction result back from the system (in json format). The changes will happen on the body of POST request and the endpoint variable (if you change your port).  
 As you changes your script input and output serving variable, you will need to change the body of POST request (refer to Sample POST request input (json)).  
