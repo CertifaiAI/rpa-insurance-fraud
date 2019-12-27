@@ -1,0 +1,60 @@
+{
+  "pipelineSteps" : [ {
+    "@type" : "PythonPipelineStep",
+    "affectedInputNames" : [ ],
+    "affectedOutputNames" : [ ],
+    "inputColumnNames" : {
+      "default" : [ "myinput","model_path" ]
+    },
+    "inputNames" : [ "default" ],
+    "inputSchemas" : {
+      "default" : [ "String", "String" ]
+    },
+    "outputColumnNames" : {
+      "default" : [ "PredictedClass", "Confidence", "output"]
+    },
+    "outputNames" : [ ],
+    "outputSchemas" : {
+      "default" : [ "String", "String", "String" ]
+    },
+    "pythonConfigs" : {
+      "default" : {
+        "@type" : "PythonConfig",
+        "extraInputs" : { },
+        "modelConfigType" : null,
+        "pythonCode" : null,
+        "pythonCodePath" : "C:\\\\Users\\\\chiaw\\\\Desktop\\\\konduit\\\\rpa\\\\Insurance_Fraud_Konduit\\\\data\\\\\\Script.py",
+        "pythonInputs" : {
+          "model_path" : "STR",
+          "myinput" : "STR"
+        },
+        "pythonOutputs" : {
+		  "PredictedClass" : "STR",
+		  "Confidence" : "STR",
+          "output" : "STR"
+        },
+        "pythonPath" : "C:\\\\Users\\\\chiaw\\\\Desktop\\\\konduit\\\\rpa\\\\Insurance_Fraud_Konduit\\\\distro\\\\\\conda\\python37.zip;C:\\\\Users\\\\chiaw\\\\Desktop\\\\konduit\\\\rpa\\\\Insurance_Fraud_Konduit\\\\distro\\\\\\conda\\DLLs;C:\\\\Users\\\\chiaw\\\\Desktop\\\\konduit\\\\rpa\\\\Insurance_Fraud_Konduit\\\\distro\\\\\\conda\\lib;C:\\\\Users\\\\chiaw\\\\Desktop\\\\konduit\\\\rpa\\\\Insurance_Fraud_Konduit\\\\distro\\\\\\conda;;C:\\\\Users\\\\chiaw\\\\Desktop\\\\konduit\\\\rpa\\\\Insurance_Fraud_Konduit\\\\distro\\\\\\conda\\lib\\site-packages;C:\\\\Users\\\\chiaw\\\\Desktop\\\\konduit\\\\rpa\\\\Insurance_Fraud_Konduit\\\\distro\\\\\\conda\\lib\\site-packages\\win32;C:\\\\Users\\\\chiaw\\\\Desktop\\\\konduit\\\\rpa\\\\Insurance_Fraud_Konduit\\\\distro\\\\\\conda\\lib\\site-packages\\win32\\lib;C:\\\\Users\\\\chiaw\\\\Desktop\\\\konduit\\\\rpa\\\\Insurance_Fraud_Konduit\\\\distro\\\\\\conda\\lib\\site-packages\\Pythonwin;C:\\\\Users\\\\chiaw\\\\Desktop\\\\konduit\\\\rpa\\\\Insurance_Fraud_Konduit\\\\distro\\\\\\conda\\lib\\site-packages\\IPython\\extensions;C:\\\\Users\\\\chiaw\\\\Desktop\\\\konduit\\\\rpa\\\\Insurance_Fraud_Konduit\\\\distro\\\\\\scripts",
+        "returnAllInputs" : false,
+        "tensorDataTypesConfig" : null
+      }
+    }
+  } ],
+  "servingConfig" : {
+    "httpPort" : 65322,
+    "inputDataType" : "NUMPY",
+    "listenHost" : "localhost",
+    "logTimings" : false,
+    "outputDataType" : "JSON",
+    "parallelInferenceConfig" : {
+      "batchLimit" : 32,
+      "inferenceMode" : "BATCHED",
+      "maxTrainEpochs" : 1,
+      "queueLimit" : 64,
+      "vertxConfigJson" : null,
+      "workers" : 1
+    },
+    "predictionType" : "RAW",
+    "pubSubConfig" : null,
+    "uploadsDirectory" : "file-uploads/"
+  }
+}

@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>418.4,1096</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>395.2,1340</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_excel_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,10 +59,9 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_excel" sap:VirtualizedContainerService.HintSize="398.4,1036" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_excel" sap:VirtualizedContainerService.HintSize="375.2,1280" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="Customer_info" />
       <Variable x:TypeArguments="s:String[]" Name="info_array" />
@@ -77,33 +76,26 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="GetEachValue workflow" sap:VirtualizedContainerService.HintSize="356.8,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" Timeout="{x:Null}" UnSafe="False" WorkflowFileName="ClaimFormOps\GetEachValue.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Workflow that read all the available value inside a claims Form." DisplayName="GetEachValue workflow" sap:VirtualizedContainerService.HintSize="333.6,132" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ClaimFormOps\GetEachValue.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="s:String[]" x:Key="return_array">
-          <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="info_array">
-            <mva:VisualBasicReference.Result>
-              <OutArgument x:TypeArguments="Location(s:String[])" />
-            </mva:VisualBasicReference.Result>
-          </mva:VisualBasicReference>
-        </OutArgument>
-        <OutArgument x:TypeArguments="s:String[]" x:Key="return_mapping">
-          <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="map_array">
-            <mva:VisualBasicReference.Result>
-              <OutArgument x:TypeArguments="Location(s:String[])" />
-            </mva:VisualBasicReference.Result>
-          </mva:VisualBasicReference>
-        </OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="excel_path">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="excel_path">
-            <mva:VisualBasicValue.Result>
-              <OutArgument x:TypeArguments="x:String" />
-            </mva:VisualBasicValue.Result>
-          </mva:VisualBasicValue>
-        </InArgument>
+        <OutArgument x:TypeArguments="s:String[]" x:Key="return_array">[info_array]</OutArgument>
+        <OutArgument x:TypeArguments="s:String[]" x:Key="return_mapping">[map_array]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="excel_path">[excel_path]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process Excel_File" FileName="[excel_path]" sap:VirtualizedContainerService.HintSize="356.8,88" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
-    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Win+up'" sap:VirtualizedContainerService.HintSize="356.8,156" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="up" KeyModifiers="Win" SpecialKey="True">
+    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" sap2010:Annotation.AnnotationText="Open the claims form." DisplayName="Start Process Excel_File" FileName="[excel_path]" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="StartProcess_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:StartProcess>
+    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Send hotkey to maximize the excel form window." DisplayName="Send Hotkey 'Win+up'" sap:VirtualizedContainerService.HintSize="333.6,184" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="up" KeyModifiers="Win" SpecialKey="True">
       <ui:SendHotkey.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="9f4e0e4a80ada9c12eea2ab8e0dfb73f" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='Insurance Claims Form*' /&gt;&lt;uia cls='MsoCommandBar' idx='2' /&gt;&lt;uia cls='NetUIOfficeCaption' name='‪Insurance Claims Form*' /&gt;">
           <ui:Target.TimeoutMS>
@@ -114,52 +106,48 @@
           </ui:Target.WaitForReady>
         </ui:Target>
       </ui:SendHotkey.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:SendHotkey>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="TransformInputData workflow" sap:VirtualizedContainerService.HintSize="356.8,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ClaimFormOps\TransformInputData.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Workflow to transform each input features." DisplayName="TransformInputData workflow" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ClaimFormOps\TransformInputData.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="s:String[]" x:Key="input_array">
-          <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="info_array">
-            <mva:VisualBasicValue.Result>
-              <OutArgument x:TypeArguments="s:String[]" />
-            </mva:VisualBasicValue.Result>
-          </mva:VisualBasicValue>
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="return_inference_string">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="inference_string">
-            <mva:VisualBasicReference.Result>
-              <OutArgument x:TypeArguments="Location(x:String)" />
-            </mva:VisualBasicReference.Result>
-          </mva:VisualBasicReference>
-        </OutArgument>
-        <InArgument x:TypeArguments="s:String[]" x:Key="mapping_arr">
-          <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="map_array">
-            <mva:VisualBasicValue.Result>
-              <OutArgument x:TypeArguments="s:String[]" />
-            </mva:VisualBasicValue.Result>
-          </mva:VisualBasicValue>
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="file_path_loc">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="excel_path">
-            <mva:VisualBasicValue.Result>
-              <OutArgument x:TypeArguments="x:String" />
-            </mva:VisualBasicValue.Result>
-          </mva:VisualBasicValue>
-        </InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="input_array">[info_array]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="return_inference_string">[inference_string]</OutArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="mapping_arr">[map_array]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="file_path_loc">[excel_path]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="GetInferenceResults workflow" sap:VirtualizedContainerService.HintSize="356.8,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="KonduitServingOps\GetInferenceResults.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Workflow to run prediction on konduit model serving system." DisplayName="GetInferenceResults workflow" sap:VirtualizedContainerService.HintSize="333.6,132" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="KonduitServingOps\GetInferenceResults.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="input_string">[inference_string.ToString()]</InArgument>
         <OutArgument x:TypeArguments="njl:JObject" x:Key="Json_return">[Result_json]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="TransformOutputData workflow" sap:VirtualizedContainerService.HintSize="356.8,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ClaimFormOps\TransformOutputData.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Workflow to transform the prediction result of konduit model serving system." DisplayName="TransformOutputData workflow" sap:VirtualizedContainerService.HintSize="333.6,132" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ClaimFormOps\TransformOutputData.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="file_string">[excel_path]</InArgument>
         <InArgument x:TypeArguments="njl:JObject" x:Key="Input_json">[Result_json]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:CloseApplication DisplayName="Close Application 'EXCEL.EXE Insurance'" sap:VirtualizedContainerService.HintSize="356.8,107.2" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+    <ui:CloseApplication sap2010:Annotation.AnnotationText="Close existing claims form." DisplayName="Close Application 'EXCEL.EXE Insurance'" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
       <ui:CloseApplication.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="99d921f320d65427745eac13935c5ede" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='Insurance Claims Form*' /&gt;">
           <ui:Target.TimeoutMS>
@@ -170,6 +158,11 @@
           </ui:Target.WaitForReady>
         </ui:Target>
       </ui:CloseApplication.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:CloseApplication>
   </Sequence>
 </Activity>

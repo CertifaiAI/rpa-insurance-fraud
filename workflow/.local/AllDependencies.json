@@ -2286,9 +2286,9 @@
     "restore": {
       "projectUniqueName": "Insurance_Fraud_Detection",
       "projectName": "Insurance_Fraud_Detection",
-      "projectPath": "C:\\Users\\TUF\\Desktop\\rpa_ai_folder\\insurance-fraud\\.local",
+      "projectPath": "C:\\Users\\TUF\\Desktop\\insurance_fraud_github\\workflow\\.local",
       "packagesPath": "C:\\Users\\TUF\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TUF\\Desktop\\rpa_ai_folder\\insurance-fraud\\.local"
+      "outputPath": "C:\\Users\\TUF\\Desktop\\insurance_fraud_github\\workflow\\.local"
     },
     "frameworks": {
       "net461": {

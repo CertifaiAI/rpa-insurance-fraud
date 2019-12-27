@@ -78,17 +78,17 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID7</x:Reference>
+      <x:Reference>__ReferenceID6</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID5">
+    <FlowStep x:Name="__ReferenceID4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">188.8,390</av:Point>
-          <av:Size x:Key="ShapeSize">262.4,60</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">320,450 320,506.4</av:PointCollection>
+          <av:Point x:Key="ShapeLocation">188.8,430</av:Point>
+          <av:Size x:Key="ShapeSize">262.4,104</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">320,534 320,566.4</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign sap2010:Annotation.AnnotationText="Assign prediction class base on prediction result." sap:VirtualizedContainerService.HintSize="262.4,104" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[Predicted_Label]</OutArgument>
         </Assign.To>
@@ -98,30 +98,31 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
       <FlowStep.Next>
-        <FlowDecision x:Name="__ReferenceID0" Condition="[Confidence &gt; 0.9]" DisplayName="Result Confident?" sap:VirtualizedContainerService.HintSize="98.4,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+        <FlowDecision x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Checking result confidence level." Condition="[Confidence &gt; 0.9]" DisplayName="Result Confident?" sap:VirtualizedContainerService.HintSize="98.4,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <av:Point x:Key="ShapeLocation">270.8,506.4</av:Point>
+              <av:Point x:Key="ShapeLocation">270.8,566.4</av:Point>
               <av:Size x:Key="ShapeSize">98.4,87.2</av:Size>
-              <av:PointCollection x:Key="TrueConnector">270.8,550 130,550 130,603.6</av:PointCollection>
-              <av:PointCollection x:Key="FalseConnector">369.2,550 510,550 510,593.6</av:PointCollection>
+              <av:PointCollection x:Key="TrueConnector">270.8,610 130,610 130,663.6</av:PointCollection>
+              <av:PointCollection x:Key="FalseConnector">369.2,610 510,610 510,653.6</av:PointCollection>
+              <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.True>
-            <FlowStep x:Name="__ReferenceID2">
+            <FlowStep x:Name="__ReferenceID1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">30,603.6</av:Point>
-                  <av:Size x:Key="ShapeSize">200,52.8</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">130,656.4 130,713.6</av:PointCollection>
+                  <av:Point x:Key="ShapeLocation">30,663.6</av:Point>
+                  <av:Size x:Key="ShapeSize">200,80.8</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBetweenKeys="50" DelayMS="3000" DisplayName="Type Into 'editable text'" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="False" Text="[&quot;Prediction Class: &lt; &quot;+Predicted_Label + &quot; &gt; , With Confidence: &quot; + Confidence.ToString()]">
+              <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Type into notepad.exe." DelayBetweenKeys="50" DelayMS="3000" DisplayName="Type Into 'editable text'" sap:VirtualizedContainerService.HintSize="200,80.8" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="False" Text="[&quot;Prediction Class: &lt; &quot;+Predicted_Label + &quot; &gt; , With Confidence: &quot; + Confidence.ToString()]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e3b0c4e94f8a6fc861f4dbcfb74a1cce" Selector="&lt;wnd app='notepad.exe' cls='Notepad' title='*Untitled - Notepad*' /&gt;&lt;wnd aaname='Horizontal' cls='Edit' /&gt;&lt;ctrl name='Text Editor' role='editable text' /&gt;">
                     <ui:Target.TimeoutMS>
@@ -135,57 +136,42 @@
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:TypeInto>
-              <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID1">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">30,713.6</av:Point>
-                      <av:Size x:Key="ShapeSize">200,52.8</av:Size>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;File:&quot; + file_string+ Environment.NewLine + &quot;Class: &quot;+Predicted_Label + &quot;, Confidence: &quot; + Confidence.ToString()]">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:LogMessage>
-                </FlowStep>
-              </FlowStep.Next>
             </FlowStep>
           </FlowDecision.True>
           <FlowDecision.False>
-            <FlowStep x:Name="__ReferenceID3">
+            <FlowStep x:Name="__ReferenceID2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">410,593.6</av:Point>
-                  <av:Size x:Key="ShapeSize">200,52.8</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">510,646.4 510,713.6</av:PointCollection>
+                  <av:Point x:Key="ShapeLocation">410,653.6</av:Point>
+                  <av:Size x:Key="ShapeSize">200,96.8</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">510,750.4 510,773.6</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="[&quot;Inspected Class &lt; &quot;+ Predicted_Label + &quot; &gt; with confidence of &quot;+ &#xA;Confidence.ToString() + Environment.NewLine + &quot;Is this Claim Standard or Potential Fraud?&quot;]" Options="[{ &quot;Legitimate&quot;,&quot;Potential Fraud&quot; }]" Title="Confirmation Required">
+              <ui:InputDialog sap2010:Annotation.AnnotationText="Get user input if the confidence is under threshold." DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="200,96.8" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="[&quot;Inspected Class &lt; &quot;+ Predicted_Label + &quot; &gt; with confidence of &quot;+ &#xA;Confidence.ToString() + Environment.NewLine + &quot;Is this Claim Standard or Potential Fraud?&quot;]" Options="[{ &quot;Legitimate&quot;,&quot;Potential Fraud&quot; }]" Title="Confirmation Required">
                 <ui:InputDialog.Result>
                   <OutArgument x:TypeArguments="x:String">[InputDialogResult]</OutArgument>
                 </ui:InputDialog.Result>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:InputDialog>
               <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID4">
+                <FlowStep x:Name="__ReferenceID3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">410,713.6</av:Point>
-                      <av:Size x:Key="ShapeSize">200,52.8</av:Size>
+                      <av:Point x:Key="ShapeLocation">410,773.6</av:Point>
+                      <av:Size x:Key="ShapeSize">200,80.8</av:Size>
                       <av:PointCollection x:Key="ConnectorLocation">320,1206.4 320,1236.4 330,1236.4 330,1263.6</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBetweenKeys="50" DelayMS="3000" DisplayName="Type Into&quot;Notepad&quot;" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="False" Text="[&quot;Classified Result as Class : &lt; &quot;+InputDialogResult + &quot; &gt; with Manual Selection.&quot;]">
+                  <ui:TypeInto ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Type into notepad.exe" DelayBetweenKeys="50" DelayMS="3000" DisplayName="Type Into&quot;Notepad&quot;" sap:VirtualizedContainerService.HintSize="200,80.8" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="False" Text="[&quot;Classified Result as Class : &lt; &quot;+InputDialogResult + &quot; &gt; with Manual Selection.&quot;]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="e3b0c4e94f8a6fc861f4dbcfb74a1cce" Selector="&lt;wnd app='notepad.exe' cls='Notepad' title='*Untitled - Notepad*' /&gt;&lt;wnd aaname='Horizontal' cls='Edit' /&gt;&lt;ctrl name='Text Editor' role='editable text' /&gt;">
                         <ui:Target.TimeoutMS>
@@ -199,6 +185,7 @@
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:TypeInto>
@@ -213,16 +200,15 @@
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
-    <x:Reference>__ReferenceID4</x:Reference>
-    <FlowStep x:Name="__ReferenceID6">
+    <FlowStep x:Name="__ReferenceID5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">188.8,290</av:Point>
-          <av:Size x:Key="ShapeSize">262.4,60</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">320,350 320,390</av:PointCollection>
+          <av:Point x:Key="ShapeLocation">188.8,300</av:Point>
+          <av:Size x:Key="ShapeSize">262.4,104</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">320,404 320,430</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign sap2010:Annotation.AnnotationText="Extract confidence score from JSON object." sap:VirtualizedContainerService.HintSize="262.4,104" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Double">[Confidence]</OutArgument>
         </Assign.To>
@@ -232,22 +218,23 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID5</x:Reference>
+        <x:Reference>__ReferenceID4</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <FlowStep x:Name="__ReferenceID7">
+    <FlowStep x:Name="__ReferenceID6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">188.8,170</av:Point>
-          <av:Size x:Key="ShapeSize">262.4,60</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">320,230 320,290</av:PointCollection>
+          <av:Size x:Key="ShapeSize">262.4,104</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">320,274 320,300</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign sap2010:Annotation.AnnotationText="Extract prediction result from JSON object. " sap:VirtualizedContainerService.HintSize="262.4,104" sap2010:WorkflowViewState.IdRef="Assign_3">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Int32">[Prediction]</OutArgument>
         </Assign.To>
@@ -257,11 +244,12 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
       <FlowStep.Next>
-        <x:Reference>__ReferenceID6</x:Reference>
+        <x:Reference>__ReferenceID5</x:Reference>
       </FlowStep.Next>
     </FlowStep>
   </Flowchart>
